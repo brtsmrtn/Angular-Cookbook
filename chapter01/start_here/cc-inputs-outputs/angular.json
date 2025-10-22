@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cc-inputs-outputs:build"
+            "buildTarget": "cc-inputs-outputs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cc-inputs-outputs:build:production"
+              "buildTarget": "cc-input-outputs:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cc-inputs-outputs:build"
+            "buildTarget": "cc-inputs-outputs:build"
           }
         },
         "test": {
@@ -129,7 +129,6 @@
       }
     }
   },
-  "defaultProject": "cc-inputs-outputs",
   "cli": {
     "analytics": "e02a08a3-b5d1-4a67-9bd8-9f6fe8cd85bf"
   }
