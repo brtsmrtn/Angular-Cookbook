@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, Optional } from '@angular/core';
 import { LoggerService } from '../../services/logger.service';
 import { Logger } from '../../interfaces/logger';
 @Component({
@@ -10,8 +10,8 @@ export class VcLogsComponent implements OnInit {
   @Input() vName;
   logs: string[] = [];
   logger: Logger;
-  constructor(private loggerService: LoggerService) {
-    this.logger = this.loggerService;
+  constructor(@Optional() private loggerService: LoggerService) {
+    this.logger = !this.loggerService ? console : this.loggerService;
   }
 
   ngOnInit(): void {
