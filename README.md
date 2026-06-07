@@ -26,6 +26,61 @@ If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838
 alt="https://www.packtpub.com/" border="5" /></a>
 
 
+## Running the recipes
+
+Each recipe is a **standalone Angular workspace** (its own folder with `angular.json`), not the chapter folder itself. For example, chapter 3's singleton-service recipe lives at `chapter03/start_here/ng-singleton-service/`.
+
+These projects target **Angular 12** and **Node 16**. Newer Node versions (such as Node 26) need extra workarounds that are already configured in this repo.
+
+### One-time setup
+
+From the repository root:
+
+```bash
+npm run bootstrap
+```
+
+This copies a shared `.npmrc` into every recipe project so `npm install` tolerates the cookbook's mismatched Angular peer deps (`legacy-peer-deps=true`).
+
+> **Note:** `EBADENGINE` warnings during install are harmless — Angular 12's packages predate npm 8, but they work fine on Node 16.
+
+### Install a Node version manager (nvm not required)
+
+On Arch Linux, **fnm** is a good fit and reads `.node-version` from this repo:
+
+```bash
+# install fnm (pick one)
+sudo pacman -S fnm
+# or: cargo install fnm
+
+# add to ~/.bashrc (fnm prints the exact line during install):
+eval "$(fnm env)"
+
+fnm install    # reads .node-version → installs Node 16.20.2
+fnm use
+node -v        # should show v16.20.2
+```
+
+**mise** and **asdf** also work with the `.node-version` file. **nvm** users can run `nvm install` in the repo root (reads `.nvmrc`).
+
+### Run a recipe
+
+From the repository root:
+
+```bash
+npm run serve -- chapter03/start_here/ng-singleton-service
+```
+
+Or manually inside a recipe folder:
+
+```bash
+cd chapter03/start_here/ng-singleton-service
+npm install
+npm start
+```
+
+On **Node 16** (recommended), `npm start` just works. On **Node 17+**, use `npm run serve` from the repo root (it sets the OpenSSL workaround only for the dev server — never during `npm install`).
+
 ## Instructions and Navigations
 All of the code is organized into folders. For example, Chapter02.
 

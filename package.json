@@ -1,0 +1,9 @@
+{
+  "name": "angular-cookbook",
+  "private": true,
+  "description": "Development helpers for the Angular Cookbook recipe projects",
+  "scripts": {
+    "bootstrap": "bash scripts/bootstrap.sh",
+    "serve": "bash scripts/serve.sh"
+  }
+}
