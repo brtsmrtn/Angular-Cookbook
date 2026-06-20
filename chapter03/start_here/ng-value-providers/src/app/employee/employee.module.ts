@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { EmployeeConfig } from '../constants/employee-config';
+import { APP_CONFIG } from '../constants/app-config';
 
 
 @NgModule({
@@ -11,6 +13,7 @@ import { EmployeeComponent } from './employee.component';
     CommonModule,
     EmployeeRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [{ provide: APP_CONFIG, useValue: EmployeeConfig }]
 })
 export class EmployeeModule { }
